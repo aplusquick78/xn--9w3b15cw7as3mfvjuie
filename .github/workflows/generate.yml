@@ -1,4 +1,4 @@
-name: Seongnam Quick Fast-Delivery Generator
+name: 지역폴더 Fast-Delivery Generator
 
 on:
   push:
