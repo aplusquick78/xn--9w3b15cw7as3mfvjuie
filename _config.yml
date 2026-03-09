@@ -6,6 +6,10 @@ baseurl: ""
 future: true
 timezone: Asia/Seoul
 
+# 한 페이지에 10개씩 끊어서 보여주기 설정
+paginate: 10
+paginate_path: "/page:num/"
+
 # 주소 끝에 index.html이 붙지 않아도 접속되게 설정
 permalink: /:path/
 
