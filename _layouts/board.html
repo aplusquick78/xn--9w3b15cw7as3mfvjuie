@@ -251,26 +251,65 @@ $('#fullpage').fullpage({
         </div>
 
 <div class="promotion_list section fp-section fp-table" id="section6" style="background: #FFD966;">
-    <div class="text_area fp-tableCell" style="vertical-align: middle; padding-top: 100px !important; padding-bottom: 40px;">
+    <div class="text_area fp-tableCell" style="vertical-align: middle; padding-top: 60px !important; padding-bottom: 40px;">
         <section style="margin: 0 auto; max-width: 640px; text-align: left; padding: 0 20px; position: relative; z-index: 9999;">
             <h2 class="sub_title" style="font-weight:800; color:#333;">📢 파주 {{ page.town }}퀵서비스 배송 리포트</h2>
             <br>
             <div style="background: #fff; border: 1px solid #e1e8ef; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                {% for post in site.posts limit:10 %}
-                <a href="{{ post.url }}" class="board-row" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid #f0f0f0; text-decoration: none; cursor: pointer; position: relative; z-index: 10000;">
-                    <div style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 15px;">
-                        <span style="display: inline-block; padding: 2px 8px; background: #eef4fb; color: #004a99; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-right: 10px;">완료</span>
-                        <span style="font-size: 0.95rem; color: #333; font-weight: 600;">{{ post.title | replace: " - 파주퀵서비스", "" | append: " - " | append: post.town | append: "퀵" }}</span>
-                    </div>
-                    <span style="font-size: 0.85rem; color: #999;">{{ post.date | date: "%m-%d" }}</span>
-                </a>
-                {% endfor %}
+                
+                {% if paginator.posts %}
+                    {% for post in paginator.posts %}
+                    <a href="{{ post.url }}" class="board-row" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid #f0f0f0; text-decoration: none; cursor: pointer; position: relative; z-index: 10000;">
+                        <div style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 15px;">
+                            <span style="display: inline-block; padding: 2px 8px; background: #eef4fb; color: #004a99; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-right: 10px;">완료</span>
+                            <span style="font-size: 0.95rem; color: #333; font-weight: 600;">{{ post.title | replace: " - 파주퀵서비스", "" | append: " - " | append: post.town | append: "퀵" }}</span>
+                        </div>
+                        <span style="font-size: 0.85rem; color: #999;">{{ post.date | date: "%m-%d" }}</span>
+                    </a>
+                    {% endfor %}
+                {% else %}
+                    {% for post in site.posts limit:10 %}
+                    <a href="{{ post.url }}" class="board-row" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid #f0f0f0; text-decoration: none; cursor: pointer; position: relative; z-index: 10000;">
+                        <div style="flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 15px;">
+                            <span style="display: inline-block; padding: 2px 8px; background: #eef4fb; color: #004a99; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-right: 10px;">완료</span>
+                            <span style="font-size: 0.95rem; color: #333; font-weight: 600;">{{ post.title | replace: " - 파주퀵서비스", "" | append: " - " | append: post.town | append: "퀵" }}</span>
+                        </div>
+                        <span style="font-size: 0.85rem; color: #999;">{{ post.date | date: "%m-%d" }}</span>
+                    </a>
+                    {% endfor %}
+                {% endif %}
             </div>
+
+            {% if paginator.total_pages > 1 %}
+            <div class="pagination" style="text-align: center; margin-top: 20px;">
+                <div style="display: inline-flex; gap: 8px; justify-content: center; align-items: center;">
+                    {% if paginator.previous_page %}
+                        <a href="{{ paginator.previous_page_path | replace: '//', '/' }}" style="text-decoration: none; color: #333; font-weight: bold;">[이전]</a>
+                    {% endif %}
+
+                    {% for num in (1..paginator.total_pages) %}
+                        {% if num == paginator.page %}
+                            <strong style="color: #d32f2f; text-decoration: underline; font-size: 1.1rem;">{{ num }}</strong>
+                        {% elsif num <= 5 %}
+                            {% if num == 1 %}
+                                <a href="/" style="text-decoration: none; color: #666;">{{ num }}</a>
+                            {% else %}
+                                <a href="{{ site.paginate_path | replace: ':num', num | prepend: site.baseurl | replace: '//', '/' }}" style="text-decoration: none; color: #666;">{{ num }}</a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if paginator.next_page %}
+                        <a href="{{ paginator.next_page_path | replace: '//', '/' }}" style="text-decoration: none; color: #333; font-weight: bold;">[다음]</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
             <p style="margin-top: 15px; text-align: center; font-weight: bold; color: #444;">☎ 24시 접수: 1661-4262</p>
         </section>
     </div>
 </div>
-
 <div class="promotion_list section fp-section fp-table" id="section7" style="background: #add397;">
     <div class="text_area fp-tableCell" style="vertical-align: middle; padding: 100px 10px 80px 10px !important;">
         <section style="margin: 0 auto; max-width: 1000px; text-align: center; position: relative; z-index: 9999;">
@@ -331,6 +370,7 @@ $('#fullpage').fullpage({
 <div style="display:none;">{{ content }}</div>
 </body>
 </html>
+
 
 
 
