@@ -67,123 +67,29 @@
     <script type="text/javascript" src="/file/base.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    try {
-        if ($.fn.fullpage.destroy) {
-            $.fn.fullpage.destroy('all');
-        }
-    } catch (e) {}
+   $(document).ready(function () {
+      $('#fullpage').fullpage({
+         'verticalCentered': false,
+         'css3': true,
+         'navigation': true,
+         'navigationPosition': 'right',
+         'scrollingSpeed': '500',
 
-$('#fullpage').fullpage({
-    verticalCentered: false,
-    css3: true,
-    navigation: true,
-    navigationPosition: 'right',
-    scrollingSpeed: 500,
-    sectionSelector: '.section',
-        afterRender: function() {
-            $(window).trigger('resize');
-        },
-        afterLoad: function(anchorLink, index) {
-            $('.section').find('.img').removeClass('active');
-            $(this).find('.img').addClass('active');
-
-            if (index >= 1) {
-                $('.main_header .app_down').addClass('active');
-            } else {
-                $('.main_header .app_down').removeClass('active');
+         'afterLoad': function (anchorLink, index) {
+            if (index == 1) {
+               $('.time_5s .img').addClass('active');
             }
-        }
-    });
-});
+            if (index == 1) {
+               $('.main_header .app_down').addClass('active');
+            }
+            if (index == 4) {
+               $('.my_contents .img').addClass('active');
+            }
+
+         }
+      });
+   });
 </script>
-    <style>/* 1. 모든 세션을 0~5번처럼 한 화면에 고정 */
-.section, .fp-section, .fp-tableCell {
-    height: 100vh !important;
-    overflow: hidden !important; /* 화면 밖으로 안 나가게 */
-}
-
-/* 2. 세션 6 (리포트 목록) 축소 */
-#section6 .text_area {
-    padding-top: 60px !important;
-}
-#section6 .board-row {
-    padding: 6px 15px !important; /* 간격 축소 */
-}
-#section6 .board-row span {
-    font-size: 0.8rem !important; /* 글씨 축소 */
-}
-
-/* 세션 7 (지점 안내) 초소형 압축 */
-#section7 .text_area {
-    padding: 50px 5px 10px 5px !important; /* 상단 여백 최소화 */
-}
-
-#section7 .sub_title {
-    font-size: 1rem !important; /* 제목 크기 축소 */
-    margin-bottom: 8px !important;
-}
-
-/* 지점 버튼 그리드 초소형화 */
-#section7 .town-grid {
-    gap: 2px !important; /* 버튼 사이 간격 최소화 */
-}
-
-#section7 .town-grid a {
-    width: calc(20% - 2px) !important; /* PC/모바일 공통 한 줄에 5개씩 */
-    height: 24px !important; /* 버튼 높이 최소화 */
-    font-size: 0.6rem !important; /* 글자 크기 최소화 */
-    padding: 0 !important;
-    margin-bottom: 2px !important;
-    line-height: 24px !important;
-    border-radius: 2px !important;
-}
-
-/* 하단 전화번호 영역 축소 */
-#section7 .text_area div[style*="margin-top: 30px"] {
-    margin-top: 10px !important;
-}
-
-#section7 a[href^="tel"] {
-    padding: 5px 15px !important;
-    font-size: 1rem !important;
-}
-
-@media screen and (max-width: 768px) {
-    #section7 .sub_title { font-size: 0.9rem !important; }
-    /* 모바일에서 버튼이 너무 작으면 터치가 힘드니 4개로 조정하거나 이대로 유지 */
-    #section7 .town-grid a {
-        width: calc(25% - 2px) !important; /* 모바일은 4개씩 */
-    }
-}
-
-/* 세션 8 푸터: 박스는 중앙에, 글자는 왼쪽 정렬 */
-#section8 {
-    background: #1a1a1a !important;
-}
-
-#section8 .fp-tableCell {
-    display: flex !important;
-    align-items: center !important;   /* 세로 중앙 */
-    justify-content: center !important; /* 가로 중앙 */
-    width: 100% !important;
-}
-
-#section8 footer {
-    margin: 0 auto !important;
-    text-align: left !important; /* 텍스트는 다시 왼쪽으로! */
-    width: 100%;
-    max-width: 640px; /* 사장님 원래 소스 수치로 복구 */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-#section8 hr {
-    border: 0;
-    border-top: 1px solid #333;
-    margin: 0 0 15px 0 !important; /* 구분선도 왼쪽 정렬 */
-    width: 100%;
-}</style>
 </head>
 <body>
     <header class="main_header">
@@ -370,6 +276,7 @@ $('#fullpage').fullpage({
 <div style="display:none;">{{ content }}</div>
 </body>
 </html>
+
 
 
 
