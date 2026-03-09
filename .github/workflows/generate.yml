@@ -28,5 +28,5 @@ jobs:
           git config --global user.email "bot@8222quick.com"
           git add .
           # 변화가 있을 때만 커밋하고 푸시합니다.
-          git commit -m "🚀 빠른배송 성남 40개 지점 자동 업데이트" || exit 0
+          git commit -m "🚀 빠른배송 지점 자동 업데이트" || exit 0
           git push origin main
