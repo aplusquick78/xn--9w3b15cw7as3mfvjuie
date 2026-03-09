@@ -4,9 +4,9 @@ layout: null
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>성남 퀵서비스 빠른배송 리포트</title>
-    <description>성남, 분당, 판교 전 지역 24시 신속한 배송 실시간 리포트</description>
-    <link>https://seongnam.8222quick.com/</link>
+    <title>파주퀵서비스 빠른배송 리포트</title>
+    <description>파주, 운정, 교하 파주시 전지역 24시 신속한 배송 실시간 리포트</description>
+    <link>https://파주퀵서비스.8222quick.com/</link>
     <atom:link href="{{ "/feed.xml" | prepend: site.url }}" rel="self" type="application/rss+xml"/>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
