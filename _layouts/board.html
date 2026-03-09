@@ -3,14 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>파주 {{ page.town }}퀵서비스 | 파주·교하OCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>파주 {{ page.town }}퀵서비스 | 파주·교하·판교 24시 빠른배송 {{ page.town }}퀵</title>
+    <title>파주 {{ page.town }}퀵서비스 | 파주·운정신도시·교하 24시 빠른배송 {{ page.town }}퀵</title>
     <meta name="description" content="파주 {{ page.town }}퀵서비스 전문. 파주 {{ page.town }}전지역 신속한 배송. 오토바이퀵, 다마스퀵, 라보퀵, 1톤용달, 화물 맞춤 배차. 24시간 접수 및 기업 법인 결제 지원. 기사님들 100% 실명제, 안심 배송 보험 가입 완료.">
-    <meta name="keywords" content="파주 {{ page.town }}퀵서비스, 파주 {{ page.town }}퀵, 파주퀵, 분당퀵, 판교퀵, 야탑퀵, 정자퀵, 수정구퀵, 중원구퀵, 파주 {{ page.town }}오토바이퀵, 파주 {{ page.town }}다마스퀵, 파주 {{ page.town }}라보퀵">
+    <meta name="keywords" content="파주 {{ page.town }}퀵서비스, 파주 {{ page.town }}퀵, 파주퀵, 운정신도시퀵, 교하퀵, 금촌퀵, 문산퀵, 조리읍퀵, 탄현면퀵, 파주 {{ page.town }}오토바이퀵, 파주 {{ page.town }}다마스퀵, 파주 {{ page.town }}라보퀵">
     <meta name="robots" content="index, follow">
     <meta name="author" content="빠른배송 {{ page.town }}퀵서비스">
     <meta name="theme-color" content="#004a99">
@@ -37,8 +32,8 @@
      "openingHours": "Mo-Su 00:00-24:00",
      "priceRange": "전화문의",
      "telephone":"1661-4262",
-     "areaServed":["{{ page.town }}","파주시","분당구","수정구","중원구"],
-     "description":"{{ page.town }} 파주 파주시 전지역 24시간 퀵서비스 및 판교·분당 주요 상권 특화 신속한 배송"
+     "areaServed":["{{ page.town }}","파주시","조리읍","탄현면","월롱면"],
+     "description":"{{ page.town }} 파주 파주시 전지역 24시간 퀵서비스 및 교하·금촌 주요 상권 특화 신속한 배송"
     }
     </script>
     
@@ -282,7 +277,7 @@ $('#fullpage').fullpage({
             <h2 class="sub_title">📍 빠른배송 파주 {{ page.town }}퀵서비스 파주시 전지점 안내</h2>
 
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; width: 100%; margin: 0 auto;">
-                {% assign towns = "수정구,중원구,분당구,성남터미널,야탑터미널,분당,야탑,신흥동,태평동,수진동,단대동,산성동,양지동,복정동,창곡동,성남동,중동,금광동,은행동,상대원동,하대원동,도촌동,여수동,분당동,수내동,정자동,율동,서현동,이매동,야탑동,판교동,삼평동,백현동,금곡동,궁내동,동원동,구미동,운중동,대장동,석운동" | split: "," %}
+                {% assign towns = ""운정신도시", "출판단지", "산업단지", "운정동", "교하동", "야당동", "다율동", "와동동", "목동동", "동패동", "문발동", "신촌동", "연다산동", "오도동", "하지석동", "서패동", "금촌동", "아동동", "검산동", "맥금동", "금릉동", "문산읍", "파주읍", "법원읍", "적성면", "파평면", "군내면", "진동면", "조리읍", "광탄면", "탄현면", "월롱면" | split: "," %}
                 
                 {% for t in towns %}
                 <a href="/{{ t }}퀵서비스/" style="
@@ -336,6 +331,7 @@ $('#fullpage').fullpage({
 <div style="display:none;">{{ content }}</div>
 </body>
 </html>
+
 
 
 
