@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://8222quick.com/sitemap.xml
+Sitemap: https://파주퀵서비스.8222quick.com/sitemap.xml
+
 
 
 
