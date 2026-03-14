@@ -6,7 +6,7 @@ layout: null
   <channel>
     <title>파주퀵서비스 빠른배송 리포트</title>
     <description>파주, 운정, 교하 파주시 전지역 24시 신속한 배송 실시간 리포트</description>
-    <link>https://파주퀵서비스.8222quick.com/</link>
+    <link>https://파주퀵.8222quick.com/</link>
     <atom:link href="{{ "/feed.xml" | prepend: site.url }}" rel="self" type="application/rss+xml"/>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
